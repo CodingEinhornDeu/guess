@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="./img/pen.jpg" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Pictionary-Dictionary</title>
+</head>
+
+<body>
+  <button id="set-btn" class="set-btn">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <div id="game-settings" class="game-settings">
+    <form id="set-form">
+      <div>
+        <label for="level"><b>Level </b></label>
+        <select id="level">
+          <option value="easy">Easy 👶</option>
+          <option value="medium">Medium 🎈</option>
+          <option value="hard">Hard 🌵</option>
+        </select>
+      </div>
+
+    </form>
+  </div>
+<div id="img-container"> 
+</div>
+  <div id="play-container" class="container">
+    <h2 id="luck">Good Luck!🤞</h2>
+    <input type="text" id="text" autocomplete="off" placeholder="Type here...">
+    <p class="timer"><b>Time left:</b>
+      <span id="time"><b>15s</b></span>
+    </p>
+    <p class="scoreClass"><b>Score:</b>
+      <span id="score"><b>0</b></span>
+    </p>
+    <div class="end-game"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

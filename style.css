@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background:#79A582;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+button{
+  background-color: #50855b;
+  padding: 5px 10px;
+  border-radius: 20%;
+  font-size: 14px;
+ 
+}
+button:hover{
+  background-color:rgb(204,255, 0,0.4);
+}
+
+.set-btn{
+ position: absolute;
+ bottom: 30px;
+ right: 30px;
+}
+.game-settings{
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  height: 60px;
+  background:rgba(10, 10, 10, 0.3);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+select {
+  width: 150px;
+  padding: 3px;
+  background-color:#B5D0C1;
+}
+.img-container{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+img{
+ width: 180px;
+ height: 180px;
+ border-radius: 5px;
+ padding: 3px;
+ margin-left: 40px;
+ box-shadow: 15px 5px 10px rgba(10, 10, 10, 0.3);
+ display: inline-flex;
+ position: relative;
+ left: 200px;
+ bottom: 100px;
+
+}
+.container {
+  position: relative;
+  top: 150px;
+  right:400px;
+  bottom: 400px;
+  width: 400px;
+  background-color:#97BA9F;
+  border-radius: 3px;
+  padding: 35px;
+  box-shadow: 3px 0 10px rgba(10, 10, 10, 0.3);
+  color: #fff;
+  text-align: center;
+ 
+}
+.container h2{
+  position: relative;
+  padding: 6px;
+  background:rgba(10, 10, 10, 0.3);
+  border-radius: 4px;
+  margin:0  0 40px ;
+  top:30px;
+}
+
+
+input{
+  padding:10px 10px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  width: 300px;
+  border:0;
+  font-size: 16px;
+  font-weight: bold;
+  color:rgba(10, 10, 10, 0.7)
+}
+.scoreClass{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.timer{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
