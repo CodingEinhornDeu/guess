@@ -18,7 +18,7 @@
     <i class="fas fa-cog"></i>
   </button>
 
-  <div id="game-settings" class="game-settings">
+  <div id="game-settings" class="settings">
     <form id="set-form">
       <div>
         <label for="level"><b>Level </b></label>
@@ -37,12 +37,14 @@
     <h2 id="luck">Good Luck!🤞</h2>
     <input type="text" id="text" autocomplete="off" placeholder="Type here...">
     <p class="timer"><b>Time left:</b>
-      <span id="time"><b>15s</b></span>
+      <span id="time">15s</span>
     </p>
-    <p class="scoreClass"><b>Score:</b>
-      <span id="score"><b>0</b></span>
+    <p id="score" class="scoreClass"><b>Score:</b>
+      <span id="score">0</span>
     </p>
-    <div class="end-game"></div>
+    <div class="endContainer">
+      
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
