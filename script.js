@@ -93,8 +93,8 @@ const images = [
 // initialize the game ???
 function startGame() {
   getRandomImages();
-  displayImg();
-
+  displayImgs();
+  attachEventListeners();
 }
 function updateScore() {
   score++;
@@ -110,39 +110,53 @@ function getRandomImages() {
   for (let i = 0; fourImgArr.length < 4; i++) {
     // getting random element from my array
 
-    const rndmImg = images[Math.floor(Math.random() * images.length)];
-    //console.log(images[Math.floor(Math.random() * images.length)]);
+    const rndmImg = getSingleImg();
 
     if (!fourImgArr.includes(rndmImg)) {
       // pushing my random element to my fourImgArr if it doesnt exist
       fourImgArr.push(rndmImg);
     }
-    //console.log(fourImgArr);
   }
-
-
 }
-function displayImg() {
+
+
+function getSingleImg() {
+  return images[Math.floor(Math.random() * images.length)];
+}
+
+
+function displayImgs() {
+
+  let finalContent = '';
 
   for (let j = 0; j < fourImgArr.length; j++) {
-
-    imgContElm.innerHTML += `<img src="${fourImgArr[j].source}" id="${fourImgArr[j].id}">`;
-    // console.log(`id ${j} ${fourImgArr[j].id}`);
-    textElm.addEventListener('input', e => {
-      const writtenText = e.target.value;
-      // compare written and give texts and if they match update score and clear the input field
-      if (writtenText === fourImgArr[j].id) {
-        updateScore();
-        e.target.value = '';
-      }
-
-    })
+    finalContent += `<img src="${fourImgArr[j].source}" id="${fourImgArr[j].id}">`;
   }
 
+  imgContElm.innerHTML = finalContent;
 }
 
 
+function attachEventListeners() {
+  textElm.addEventListener('input', e => {
+    const writtenText = e.target.value;
+    for (let i = 0; i < fourImgArr.length; i++) {
+      if (writtenText === fourImgArr[i].id) {
+        updateScore();
+        // to empty the input box
+        e.target.value = '';
+        const newImg = getSingleImg();
+        fourImgArr.splice(i, 1, newImg);
+        displayImgs();
+      }
+    }
+    // compare written and give texts and if they match update score and clear the input field
+  })
+}
 
+
+function removeOneImg() {
+}
 
 
 
@@ -154,7 +168,7 @@ function displayImg() {
 
 // start timer
 //const interval = setInterval(updateTimer, 1000);
-
+// luckElm.innerHTML = "You can do it! 💪";
 
 // level bar hide if set-btn clicked
 settingsBtn.addEventListener('click', () => {
@@ -162,7 +176,7 @@ settingsBtn.addEventListener('click', () => {
 });
 
 
-//luckElm.innerHTML = "You can do it! 💪";
+
 
 // function updateTimer() {
 //   time--;
