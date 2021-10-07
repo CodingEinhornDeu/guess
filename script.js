@@ -12,6 +12,7 @@ const textElm = document.getElementById('text');
 const endGameElm = document.getElementById('endGameContainer')
 const optionElm = document.getElementsByTagName('option');
 const setFormEl = document.getElementById('set-form');
+const timerSpanElm = document.getElementById('time');
 
 let textElmVal = "";
 let score = 0;
@@ -127,21 +128,12 @@ function startGame() {
 function updateScore() {
   score++;
   scoreElm.innerHTML = score;
+  scoreElm.style.color = 'green';
+  scoreElm.style.fontWeight = 'bold';
 }
 // start directly from input field
 //text.focus();
 
-
-// to reach our images from our array
-function getRandomFourImages() {
-
-  // start from 0 and iterate +1 until it reaches where fourImgArr length is smaller that 4
-  for (let i = 0; fourImgArr.length < 4; i++) {
-    // getting random element from my array
-
-    pushImgs();
-  }
-}
 function pushImgs() {
   const rndmImg = getSingleImg();
 
@@ -150,15 +142,28 @@ function pushImgs() {
     fourImgArr.push(rndmImg);
   }
 }
-
+// to reach our images from our array
+function getRandomTwoImages() {
+  // start from 0 and iterate +1 until it reaches where fourImgArr length is smaller that 4
+  for (let i = 0; fourImgArr.length < 2; i++) {
+    // getting random element from my array
+    pushImgs();
+  }
+}
+function getRandomFourImages() {
+  // start from 0 and iterate +1 until it reaches where fourImgArr length is smaller that 4
+  for (let i = 0; fourImgArr.length < 4; i++) {
+    // getting random element from my array
+    pushImgs();
+  }
+}
 function getRandomSixImages() {
-
   // start from 0 and iterate +1 until it reaches where fourImgArr length is smaller that 4
   for (let i = 0; fourImgArr.length < 6; i++) {
     // getting random element from my array
     pushImgs();
   }
-  playContElm.className = 'containerSix';
+  //playContElm.className = 'containerSix';
 
 }
 
@@ -174,7 +179,6 @@ function displayImgs() {
   for (let j = 0; j < fourImgArr.length; j++) {
     finalContent += `<img src="${fourImgArr[j].source}" id="${fourImgArr[j].id}">`;
   }
-
   imgContElm.innerHTML = finalContent;
 }
 
@@ -204,14 +208,27 @@ settingsBtn.addEventListener('click', () => {
   gameSetElm.classList.toggle('hide')
 });
 const timeInterval = setInterval(startTimer, 1000);
+// choose difficulty
 setFormEl.addEventListener('change', e => {
   difficulty = e.target.value;
-  console.log(difficulty);
+  // console.log(difficulty);
+  if (difficulty === 'hard') {
+    // getRandomSixImages();
+    startGame(6);
+  } else if (difficulty === 'medium') {
+    // getRandomFourImages();
+    startGame(4)
+  } else {
+    // getRandomTwoImages();
+  }
 })
 
 function startTimer() {
   time--;
   timerElm.innerHTML = time + 's';
+  if (time < 5) {
+    timerSpanElm.className = 'timerSpan';
+  }
   if (time === 0) {
     clearInterval(timeInterval);
     gameOver();
@@ -228,7 +245,7 @@ function gameOver() {
 function increaseTimer() {
   time = time + 3;
   timerElm.innerHTML = time + 's';
-  timerElm.style.fontSize = "18px";
+
 }
 function refresh() {
   window.location.reload("Refresh")

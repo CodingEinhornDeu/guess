@@ -152,6 +152,11 @@ input{
   position: absolute;
   top: 30px;
   left: 30px;
+
+}
+.timerSpan{
+  color:red;
+  font-weight: bold;
 }
 .endGameContainer{
   background-color: inherit;
