@@ -9,9 +9,14 @@ const imgContElm = document.getElementById('img-container');
 const scoreElm = document.getElementById('score');
 const timerElm = document.getElementById('time');
 const textElm = document.getElementById('text');
+const endGameElm = document.getElementById('endGameContainer')
+const optionElm = document.getElementsByTagName('option');
+const setFormEl = document.getElementById('set-form');
+
 let textElmVal = "";
 let score = 0;
 let time = 15;
+let difficulty ='easy';
 const fourImgArr = [];
 
 const images = [
@@ -85,40 +90,76 @@ const images = [
     id: "firework"
   },
   {
-    source: "./img/clock.jpg",
-    id: "clock"
+    source: "./img/mickey-mouse.png",
+    id: "mickey"
   }
+  ,
+  {
+    source: "./img/hello-kitty.webp",
+    id: "kitty"
+  },
+  {
+    source: "./img/donald-duck.png",
+    id: "donald"
+  },
 
+  {
+    source: "./img/tongue.png",
+    id: "tongue"
+  },
+  {
+    source: "./img/cherry.jpg",
+    id: "cherry"
+  },
+  {
+    source: "./img/avocado.jpg",
+    id: "avocado"
+  }
 ];
 // initialize the game ???
 function startGame() {
-  getRandomImages();
+
+  getRandomFourImages();
   displayImgs();
   attachEventListeners();
+  startTimer();
 }
 function updateScore() {
   score++;
   scoreElm.innerHTML = score;
 }
-// to start directly from input field
+// start directly from input field
 //text.focus();
 
+
 // to reach our images from our array
-function getRandomImages() {
+function getRandomFourImages() {
 
   // start from 0 and iterate +1 until it reaches where fourImgArr length is smaller that 4
   for (let i = 0; fourImgArr.length < 4; i++) {
     // getting random element from my array
 
-    const rndmImg = getSingleImg();
+    pushImgs();
+  }
+}
+function pushImgs() {
+  const rndmImg = getSingleImg();
 
-    if (!fourImgArr.includes(rndmImg)) {
-      // pushing my random element to my fourImgArr if it doesnt exist
-      fourImgArr.push(rndmImg);
-    }
+  if (!fourImgArr.includes(rndmImg)) {
+    // pushing my random element to my fourImgArr if it doesnt exist
+    fourImgArr.push(rndmImg);
   }
 }
 
+function getRandomSixImages() {
+
+  // start from 0 and iterate +1 until it reaches where fourImgArr length is smaller that 4
+  for (let i = 0; fourImgArr.length < 6; i++) {
+    // getting random element from my array
+
+    pushImgs();
+  }
+}
 
 function getSingleImg() {
   return images[Math.floor(Math.random() * images.length)];
@@ -139,47 +180,64 @@ function displayImgs() {
 
 function attachEventListeners() {
   textElm.addEventListener('input', e => {
+    const target = e.target;
     const writtenText = e.target.value;
-    for (let i = 0; i < fourImgArr.length; i++) {
-      if (writtenText === fourImgArr[i].id) {
-        updateScore();
-        // to empty the input box
-        e.target.value = '';
-        const newImg = getSingleImg();
-        fourImgArr.splice(i, 1, newImg);
-        displayImgs();
-      }
-    }
-    // compare written and give texts and if they match update score and clear the input field
+    checkMatch(target, writtenText);
   })
 }
 
-
-function removeOneImg() {
+function checkMatch(inputElm, word) {
+  for (let i = 0; i < fourImgArr.length; i++) {
+    if (word === fourImgArr[i].id) {
+      updateScore();
+      inputElm.value = '';
+      const newImg = getSingleImg();
+      fourImgArr.splice(i, 1, newImg);
+      displayImgs();
+      increaseTimer();
+    }
+  }
 }
 
 
 
 
 
-
-
-
-
-// start timer
-//const interval = setInterval(updateTimer, 1000);
-// luckElm.innerHTML = "You can do it! 💪";
-
-// level bar hide if set-btn clicked
 settingsBtn.addEventListener('click', () => {
   gameSetElm.classList.toggle('hide')
 });
+const timeInterval = setInterval(startTimer, 1000);
+setFormEl.addEventListener('change', e=>{
+  difficulty = e.target.value;
+  console.log(difficulty);
+})
+function startTimer() {
+  time--;
+  timerElm.innerHTML = time + 's';
+  if (time === 0) {
+    clearInterval(timeInterval);
 
 
+    gameOver();
+  }
+}
+function gameOver() {
 
+  endGameElm.innerHTML = `
 
-// function updateTimer() {
-//   time--;
-//   timerElm.innerHTML = time + 's';
+  <h1><b>🔥 Game Over 🔥</b></h1>
+  <p style="margin-top:10px;"><b>Your Score : ${score}</b></p>
+  <button class="refreshBtn" onClick="location.reload()")>Restart</button>
+  `;
+  endGameElm.style.display = 'flex';
+}
+function increaseTimer() {
+  time = time + 3;
+  timerElm.innerHTML = time + 's';
+  timerElm.style.fontSize = "18px";
+}
+function refresh() {
+  window.location.reload("Refresh")
+}
 
-// }
+// luckElm.innerHTML = "You can do it! 💪";
