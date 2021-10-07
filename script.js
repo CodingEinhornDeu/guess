@@ -40,7 +40,7 @@ const images = [
   }
   ,
   {
-    source: "../img/unicorn.jpg",
+    source: "./img/unicorn.jpg",
     id: "unicorn"
   }
   ,
@@ -50,7 +50,7 @@ const images = [
   }
   ,
   {
-    source: "../img/pizza.jpg",
+    source: "./img/pizza.jpg",
     id: "pizza"
   }
   , {
@@ -118,8 +118,8 @@ const images = [
 ];
 // initialize the game ???
 function startGame() {
-  getRandomSixImages();
-  //getRandomFourImages();
+  //getRandomSixImages();
+  getRandomFourImages();
   displayImgs();
   attachEventListeners();
   startTimer();
