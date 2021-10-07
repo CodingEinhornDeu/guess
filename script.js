@@ -195,6 +195,8 @@ function checkMatch(inputElm, word) {
   for (let i = 0; i < fourImgArr.length; i++) {
     if (word === fourImgArr[i].id) {
       updateScore();
+      var audio = new Audio('coin.mp3');
+      audio.play();
       inputElm.value = '';
       const newImg = getSingleImg();
       fourImgArr.splice(i, 1, newImg);
@@ -241,6 +243,9 @@ function gameOver() {
   <p style="margin-top:10px;"><b>Your Score : ${score}</b></p>
   <button class="refreshBtn" onClick="location.reload()")>Restart</button>`;
   endGameElm.style.display = 'flex';
+
+  var audio = new Audio('over.mp3');
+  audio.play();
 }
 function increaseTimer() {
   time = time + 3;
@@ -250,5 +255,7 @@ function increaseTimer() {
 function refresh() {
   window.location.reload("Refresh")
 }
-
+function play() {
+  audio.play();
+}
 // luckElm.innerHTML = "You can do it! 💪";
