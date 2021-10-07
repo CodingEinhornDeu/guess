@@ -101,6 +101,28 @@ img{
   text-align: center;
  
 }
+.containerSix {
+  position: relative;
+  top: 150px;
+  right:700px;
+  bottom: 400px;
+  width: 400px;
+  background-color:#97BA9F;
+  border-radius: 3px;
+  padding:50px;
+  box-shadow: 3px 0 10px rgba(10, 10, 10, 0.3);
+  color: #fff;
+  text-align: center;
+ 
+}
+.containerSix h2{
+  position: relative;
+  padding: 6px;
+  background:rgba(10, 10, 10, 0.3);
+  border-radius: 4px;
+  margin:0  0 40px ;
+  top:30px;
+}
 .container h2{
   position: relative;
   padding: 6px;

@@ -3,7 +3,7 @@
 - understand the refactor we made + make a commit
 
 
-- implement timer + gameover 
+- implement timer + gameover screen + score
 
 
 + avoid duplicated images

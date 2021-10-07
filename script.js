@@ -16,7 +16,7 @@ const setFormEl = document.getElementById('set-form');
 let textElmVal = "";
 let score = 0;
 let time = 15;
-let difficulty ='easy';
+let difficulty = 'easy';
 const fourImgArr = [];
 
 const images = [
@@ -40,7 +40,7 @@ const images = [
   }
   ,
   {
-    source: "./img/unicorn.jpg",
+    source: "../img/unicorn.jpg",
     id: "unicorn"
   }
   ,
@@ -50,7 +50,7 @@ const images = [
   }
   ,
   {
-    source: "./img/pizza.jpg",
+    source: "../img/pizza.jpg",
     id: "pizza"
   }
   , {
@@ -118,8 +118,8 @@ const images = [
 ];
 // initialize the game ???
 function startGame() {
-
-  getRandomFourImages();
+  getRandomSixImages();
+  //getRandomFourImages();
   displayImgs();
   attachEventListeners();
   startTimer();
@@ -156,9 +156,10 @@ function getRandomSixImages() {
   // start from 0 and iterate +1 until it reaches where fourImgArr length is smaller that 4
   for (let i = 0; fourImgArr.length < 6; i++) {
     // getting random element from my array
-
     pushImgs();
   }
+  playContElm.className = 'containerSix';
+
 }
 
 function getSingleImg() {
@@ -199,36 +200,29 @@ function checkMatch(inputElm, word) {
   }
 }
 
-
-
-
-
 settingsBtn.addEventListener('click', () => {
   gameSetElm.classList.toggle('hide')
 });
 const timeInterval = setInterval(startTimer, 1000);
-setFormEl.addEventListener('change', e=>{
+setFormEl.addEventListener('change', e => {
   difficulty = e.target.value;
   console.log(difficulty);
 })
+
 function startTimer() {
   time--;
   timerElm.innerHTML = time + 's';
   if (time === 0) {
     clearInterval(timeInterval);
-
-
     gameOver();
   }
 }
+
 function gameOver() {
-
   endGameElm.innerHTML = `
-
   <h1><b>🔥 Game Over 🔥</b></h1>
   <p style="margin-top:10px;"><b>Your Score : ${score}</b></p>
-  <button class="refreshBtn" onClick="location.reload()")>Restart</button>
-  `;
+  <button class="refreshBtn" onClick="location.reload()")>Restart</button>`;
   endGameElm.style.display = 'flex';
 }
 function increaseTimer() {
