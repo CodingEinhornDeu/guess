@@ -33,7 +33,7 @@ body{
   position: absolute;
   background-color:forestgreen;
   border-radius: 50px;
-  padding: 20px;
+  padding:30px;
   font-size: 54px;
   display: flex;
   justify-content: center;
@@ -105,15 +105,16 @@ img{
 .container {
   position: relative;
   top: 150px;
-  right:470px;
+  right:550px;
   bottom: 400px;
-  width: 400px;
+  width: 600px;
   background-color:#97BA9F;
   border-radius: 3px;
   padding: 35px;
   box-shadow: 3px 0 10px rgba(10, 10, 10, 0.3);
   color: #fff;
   text-align: center;
+  height: 220px;
  
 }
 .containerTwo{
@@ -184,11 +185,14 @@ input{
   position: absolute;
   top: 30px;
   right: 30px;
+  font-size: 24px;
+ 
 }
 .timer{
   position: absolute;
   top: 30px;
   left: 30px;
+  font-size: 24px;
 
 }
 .timerSpan{
@@ -212,7 +216,7 @@ input{
 .instructions{
   position: relative;
   top:-40px;
-  font-size:16px;
+  font-size:20px;
   font-weight: 600;
 }
 .btn{
@@ -229,15 +233,16 @@ input{
 .close-btn{
   cursor: pointer;
   border:0;
-  padding: 10px 20px;
+  padding: 10px 40px;
   background-color:forestgreen;
+  border: white 2px solid;
   color:white;
   border-radius: 5px;
   position: relative;
   bottom:-300px;
-  left:270px;
+  left:100px;
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
 }
 .close-btn:hover{
@@ -266,7 +271,7 @@ color:forestgreen;
   position:absolute;
   top:0;
   left:0;
-  background:rgb(17, 70, 26);
+  background:forestgreen;
   color:white;
   min-height: 100vh;
   width:400px;
@@ -281,10 +286,26 @@ color:forestgreen;
   top:250px;
 }
 .rules li{
-font-size:22px;
-margin-top: 20px;
+font-size:25px;
+text-align: center;
 }
 .rules.show{
   transform:translateX(0);
 
+}
+hr{
+  color:greenyellow;
+  width:100%;
+  margin:20px auto;
+}
+input{
+  width:100%;
+  font-size: 20px;
+  margin-top: 10px;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+#luck{
+  margin-top: 10px;
 }
