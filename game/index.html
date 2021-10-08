@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="./img/pen.jpg" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Guess it!💪</title>
+</head>
+
+<body>
+  <div id="img-container">
+  </div>
+  <div id="play-container" class="container">
+    <h2 id="luck">Good Luck!🤞</h2>
+    <input type="text" id="text" autocomplete="off" style="text-align: center;" placeholder="Type here...">
+    <p class=" timer"><b>Time left:</b>
+      <span id="time">15s</span>
+    </p>
+    <p id="scoreId" class="scoreClass"><b>Score:</b>
+      <span id="score">0</span>
+    </p>
+    <div id="endGameContainer" class="endGameContainer">
+      <button onclick="play()">Play Audio</button>
+    </div>
+  </div>
+  <script src="../script.js"></script>
+</body>
+
+</html>

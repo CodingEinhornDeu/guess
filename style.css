@@ -28,7 +28,23 @@ body{
  padding: 5px 10px;
  border-radius: 20%;
  font-size: 14px;
- 
+}
+.enter-link{
+  position: absolute;
+  background-color:forestgreen;
+  border-radius: 50px;
+  padding: 20px;
+  font-size: 54px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+}
+.enter-link:hover{
+  background-color:white;
+  color:forestgreen;
 }
 .refreshBtn{
   
@@ -41,7 +57,7 @@ body{
   margin-top: 20px;
 }
 .refreshBtn:hover{
-  background-color: rgba(10, 10, 10, 0.3);
+  background-color:#50855b;
   color: white;
 }
 .settings{
@@ -49,18 +65,17 @@ body{
   top: 30px;
   width: 100%;
   height: 60px;
-  background:rgba(10, 10, 10, 0.3);
+  background:#50855b;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(0);
+  transform: translateY(-100%);
   transition:transform 0.6s ease;
 }
 .settings.hide{
-  
-  transform: translateY(-100%);
+  transform: translateY(100%);
 }
 select {
   width: 150px;
@@ -101,6 +116,20 @@ img{
   text-align: center;
  
 }
+.containerTwo{
+  position: relative;
+  top: 150px;
+  right:200px;
+  bottom: 400px;
+  width: 400px;
+  background-color:#97BA9F;
+  border-radius: 3px;
+  padding:50px;
+  box-shadow: 3px 0 10px rgba(10, 10, 10, 0.3);
+  color: #fff;
+  text-align: center;
+ 
+}
 .containerSix {
   position: relative;
   top: 150px;
@@ -114,6 +143,14 @@ img{
   color: #fff;
   text-align: center;
  
+}
+.containerTwo h2{
+  position: relative;
+  padding: 6px;
+  background:rgba(10, 10, 10, 0.3);
+  border-radius: 4px;
+  margin:0  0 40px ;
+  top:30px;
 }
 .containerSix h2{
   position: relative;
@@ -171,4 +208,83 @@ input{
   width: 100%;
   height: 100%;
   z-index:1;
+}
+.instructions{
+  position: relative;
+  top:-40px;
+  font-size:16px;
+  font-weight: 600;
+}
+.btn{
+  cursor: pointer;
+  border:0;
+  padding: 10px 20px;
+  background-color: forestgreen;
+  color:white;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 20px;
+  
+}
+.close-btn{
+  cursor: pointer;
+  border:0;
+  padding: 10px 20px;
+  background-color:forestgreen;
+  color:white;
+  border-radius: 5px;
+  position: relative;
+  bottom:-300px;
+  left:270px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+.close-btn:hover{
+background-color:white;
+color:forestgreen;
+}
+.btn:hover{
+  background: white;
+ color: forestgreen;
+  
+}
+.btn:focus{
+  outline:0;
+  
+}
+.btn:active{
+  transform: scale(0.98);
+}
+.rules-btn{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.rules{
+  position:absolute;
+  top:0;
+  left:0;
+  background:rgb(17, 70, 26);
+  color:white;
+  min-height: 100vh;
+  width:400px;
+  padding:20px;
+  line-height: 1.5;
+  transform:translateX(-400px);
+  transition:transform 1s ease-in-out;
+}
+.rules ul{
+  list-style-type: none;
+  position: relative;
+  top:250px;
+}
+.rules li{
+font-size:22px;
+margin-top: 20px;
+}
+.rules.show{
+  transform:translateX(0);
+
 }
